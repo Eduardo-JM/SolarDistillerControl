@@ -1,12 +1,7 @@
-//
-// Created by eduar on 08/01/2024.
-//
-
 #ifndef DESALINATOR_SUPPLYPUMP_H
 #define DESALINATOR_SUPPLYPUMP_H
 
 #include <Arduino.h>
-
 
 class SupplyPump {
 public:
@@ -19,6 +14,5 @@ protected:
     bool is_pumping;
     unsigned long long last_on;
 };
-
 
 #endif //DESALINATOR_SUPPLYPUMP_H

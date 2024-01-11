@@ -41,6 +41,13 @@ FuzzyController::FuzzyController(EzoPmp pmp) {
     };
 }
 
+/**
+ * Using fuzzy inference rules defined by an expert,
+ * sets the fuzzy flow rate membership
+ * @param seawater_temperature
+ * @param receiver_temperature
+ * @return fuzzy flow rate
+ */
 fuzzy_output FuzzyController::setFlowMembership(float seawater_temperature, float receiver_temperature) {
     fuzzy_output output;
 
@@ -208,6 +215,14 @@ fuzzy_output FuzzyController::setFlowMembership(float seawater_temperature, floa
     }
 }
 
+/**
+ * Using mamdani centroid defuzzification
+ * method finds the flow rate at which the
+ * pump should dispense
+ * @param seawater_temperature
+ * @param receiver_temperature
+ * @return crisp flow rate
+ */
 float FuzzyController::defuzzify(float seawater_temperature, float receiver_temperature) {
     fuzzy_output fo = setFlowMembership(seawater_temperature, receiver_temperature);
     if (!fo.active)
@@ -277,9 +292,8 @@ float FuzzyController::defuzzify(float seawater_temperature, float receiver_temp
 
 /**
  * starts the fuzzy control using both parameters,
- * also uses @see(heated_water_temperature) to pump
- * at maximum speed if heated water temperature
- * raises too high
+ * also uses \p heated_water_temperature to pump
+ * at maximum speed if the temperature raises too high
  * @param seawater_temperature
  * @param receiver_temperature
  * @param heated_water_temperature

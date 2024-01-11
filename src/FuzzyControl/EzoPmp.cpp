@@ -5,8 +5,8 @@ EzoPmp::EzoPmp() {
     initialized = false;
     setMaxFlowRate();
     current_status = false;
-    //clearVolumeDispensed();
-    //executeCommand("C,*");
+    clearVolumeDispensed();
+    executeCommand("C,*");
 }
 
 /**
@@ -85,14 +85,25 @@ float EzoPmp::getMaxFlowRate() {
     return max_flow_rate;
 }
 
+/**
+ * @return EZO-PMP volume dispensed since
+ * last caché clear
+ */
 float EzoPmp::getVolumeDispensed() {
     return response.numeric;
 }
 
+/**
+ * Clears EZO-PMP dispensed volume
+ */
 void EzoPmp::clearVolumeDispensed() {
     executeCommand("Clear");
 }
 
+/**
+ * @return true if pump is dispensing water,
+ * false otherwise
+ */
 bool EzoPmp::getCurrentStatus() {
     return current_status;
 }

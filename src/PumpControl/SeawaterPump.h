@@ -1,7 +1,3 @@
-//
-// Created by eduar on 09/01/2024.
-//
-
 #ifndef DESALINATOR_SEAWATERPUMP_H
 #define DESALINATOR_SEAWATERPUMP_H
 
@@ -17,6 +13,5 @@ public:
 private:
     WaterLevelSensors levelSensor;
 };
-
 
 #endif //DESALINATOR_SEAWATERPUMP_H

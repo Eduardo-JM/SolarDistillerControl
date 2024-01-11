@@ -1,9 +1,11 @@
-//
-// Created by eduar on 10/01/2024.
-//
-
 #include "HeatedWaterPump.h"
 
+/**
+ * Starts flow for about HW_PUMPING_TIME ms
+ * if more than HW_FORCE_PUMPING_TIME ms have
+ * passed or water temperature decreases below
+ * HW_EVACUATION_TEMPERATURE celsius
+ */
 void HeatedWaterPump::startFlow() {
 
     if (is_pumping) {

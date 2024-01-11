@@ -1,7 +1,3 @@
-//
-// Created by eduar on 09/01/2024.
-//
-
 #ifndef DESALINATOR_FUZZYCONTROLLER_H
 #define DESALINATOR_FUZZYCONTROLLER_H
 
@@ -10,7 +6,14 @@
 #include "FuzzyVariable.h"
 #include "EzoPmp.h"
 
+/**
+ * Defuzzification right limit
+ */
 #define MAMDANI_MAX_LIMIT 28
+/**
+ * @brief maximum temperature allowed before
+ * pumping at max speed
+ */
 #define MAX_TEMPERATURE_ALLOWED 67.0
 
 typedef struct output_fuzzy_limits {

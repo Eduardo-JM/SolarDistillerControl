@@ -4,6 +4,10 @@
 #include <Arduino.h>
 #include "../utils.h"
 
+/**
+ * @brief Standard deviations of fuzzy
+ * normal distribution shapes
+ */
 enum DISTRIBUTION_SIGMA {
     SEAWATER_STANDARD_DEVIATION = 3,
     SOLAR_RECEIVER_STANDARD_DEVIATION = 8

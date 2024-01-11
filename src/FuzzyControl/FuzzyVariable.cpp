@@ -7,6 +7,12 @@ FuzzyVariable::FuzzyVariable(fuzzy_limits limits, int standard_deviation) {
 
 FuzzyVariable::FuzzyVariable() {}
 
+/**
+ * Gets the degrees of membership at certain point
+ * returns all fuzzy memberships
+ * @param value
+ * @return degrees of membership of the fuzzy variable
+ */
 fuzzy_var_membership FuzzyVariable::getMemberships(float value) {
     fuzzy_var_membership m;
     m.very_low = getZShapeDistributionValue(value, limits.very_low_a, limits.very_low_b);

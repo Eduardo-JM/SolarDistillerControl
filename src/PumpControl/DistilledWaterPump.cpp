@@ -1,9 +1,11 @@
-//
-// Created by eduar on 10/01/2024.
-//
-
 #include "DistilledWaterPump.h"
 
+/**
+ * Starts flow for about DW_PUMPING_TIME ms
+ * if more than DW_FORCE_PUMPING_TIME ms have
+ * passed or water level raises above
+ * the sensor level activation height.
+ */
 void DistilledWaterPump::startFlow() {
 
     if (is_pumping) {

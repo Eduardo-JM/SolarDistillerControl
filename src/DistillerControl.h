@@ -1,7 +1,3 @@
-//
-// Created by eduar on 09/01/2024.
-//
-
 #ifndef DESALINATOR_DISTILLERCONTROL_H
 #define DESALINATOR_DISTILLERCONTROL_H
 
