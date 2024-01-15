@@ -47,6 +47,7 @@ public:
     void handlePumpFlow(float seawater_temperature,
                         float receiver_temperature,
                         float heated_water_temperature);
+    float getFlowRate();
 private:
     float defuzzify(float seawater_temperature, float receiver_temperature);
     fuzzy_output setFlowMembership(
@@ -55,6 +56,7 @@ private:
     FuzzyVariable fuzzySeawater;
     FuzzyVariable fuzzyReceiver;
     output_fuzzy_limits output_limits;
+    float flow_rate;
     EzoPmp pmp;
 };
 

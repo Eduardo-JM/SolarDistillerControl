@@ -10,6 +10,7 @@
 #include "PumpControl/SeawaterPump.h"
 #include "PumpControl/DistilledWaterPump.h"
 #include "PumpControl/HeatedWaterPump.h"
+#include "Display/LcdDisplay.h"
 
 /********************
  * Temperature Sensors
@@ -23,7 +24,7 @@
 
 #define SEA_WATER_RELAY_PIN 7
 #define DISTILLED_WATER_RELAY_PIN 8
-#define HEATED_WATER_RELAY_PIN 12
+#define HEATED_WATER_RELAY_PIN 4
 
 #define SOLAR_RECEIVER_TEMPERATURE_SENSOR_PIN_SO 9
 #define SOLAR_RECEIVER_TEMPERATURE_SENSOR_PIN_CS 10
@@ -45,12 +46,14 @@ public:
                 DISTILLED_WATER_LEVEL_SENSOR_PIN,
                 DISTILLED_WATER_RELAY_PIN,
                 ezoPmp),
-        h_pump(HEATED_WATER_TEMPERATURE_SENSOR_PIN, HEATED_WATER_RELAY_PIN, ezoPmp)
+        h_pump(HEATED_WATER_TEMPERATURE_SENSOR_PIN, HEATED_WATER_RELAY_PIN, ezoPmp),
+        lcd()
     {
         this->ezoPmp = ezoPmp;
     }
     void initFuzzyControl();
     void initPumpControl();
+    void printData();
 private:
     EzoPmp ezoPmp;
     SeawaterPump s_pump;
@@ -60,6 +63,7 @@ private:
     Thermistor heatedWaterTemperatureSensor;
     Thermocouple receiverTemperatureSensor;
     FuzzyController fuzzyController;
+    LcdDisplay lcd;
 };
 
 

@@ -24,3 +24,15 @@ void DistillerControl::initPumpControl() {
     h_pump.startFlow();
     d_pump.startFlow();
 }
+
+/**
+ * Prints sensors' data to the LCD display
+ */
+void DistillerControl::printData() {
+    lcd.printData(
+            seawaterTemperatureSensor.getTemperature(),
+            receiverTemperatureSensor.getTemperature(),
+            heatedWaterTemperatureSensor.getTemperature(),
+            fuzzyController.getFlowRate()
+            );
+}

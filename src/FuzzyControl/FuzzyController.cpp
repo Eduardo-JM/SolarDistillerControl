@@ -24,6 +24,7 @@ FuzzyController::FuzzyController(EzoPmp pmp) {
 
     this->fuzzySeawater = fuzzySeawater;
     this->fuzzyReceiver = fuzzyReceiver;
+    this->flow_rate = 0;
     this->pmp = pmp;
     this->output_limits = {
             5,
@@ -306,10 +307,15 @@ void FuzzyController::handlePumpFlow(
         pmp.dispenseAtFlowRate(pmp.getMaxFlowRate() - 1.0);
         return;
     }
-    float flow_rate = defuzzify(seawater_temperature, receiver_temperature);
+    flow_rate = defuzzify(seawater_temperature, receiver_temperature);
     if (flow_rate < MIN_FLOW_RATE || flow_rate > pmp.getMaxFlowRate()) {
+        flow_rate = 0;
         pmp.stopDispensing();
         return;
     }
     pmp.dispenseAtFlowRate(flow_rate);
+}
+
+float FuzzyController::getFlowRate() {
+    return flow_rate;
 }
